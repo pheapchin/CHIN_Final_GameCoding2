@@ -8,17 +8,13 @@ public class StatTablet : MonoBehaviour, IInteractable
     //public static StatTablet Instance;
 
     private bool isStatBlockActive;
-    public Canvas statBlock;
-
-    void Awake()
-    {
-        
-    }
+    //public Canvas statBlock;
+    private StatTabletController tabletUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        tabletUI = StatTabletController.Instance;
     }
 
     // Update is called once per frame
@@ -33,12 +29,27 @@ public class StatTablet : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (isStatBlockActive)
+        {
+            CloseMenu();
+        }
+        else
+        {
         DisplayMenu();
+        }
     }
 
     void DisplayMenu()
     {
         isStatBlockActive = true;
-        statBlock.enabled = true;
+
+        tabletUI.ShowTabletUI(true);
+    }
+
+    void CloseMenu()
+    {
+        isStatBlockActive = false;
+
+        tabletUI.ShowTabletUI(false);
     }
 }
