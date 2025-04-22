@@ -25,8 +25,6 @@ public class PlayerRB : MonoBehaviour
     //raycast distance for ground detection
     private float groundDistance = .3f;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +63,7 @@ public class PlayerRB : MonoBehaviour
         {
             Debug.Log("Dashed");
             StartCoroutine(_ability.Run(rb));
+            Debug.Log("ran coroutine");
         }
     }
 

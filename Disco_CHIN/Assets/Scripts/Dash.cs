@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +7,16 @@ public class Dash : PlayerAbilities
 {
     //stops you from dashing while exectuting
     public bool isDashed;
-    public float power = 50f;
+    //float dashSpeed = 10f;
+    //float dashDuration = 1f;
+    //float dashCooldown = 1f;
+    public float power = 5000f;
 
     public IEnumerator Run(Rigidbody rb)
     {
         isDashed = true;
-        rb.velocity = rb.transform.forward * power;
+        rb.AddForce(rb.transform.forward * power);
+        //rb.velocity = new Vector3(moveX, 0, moveZ) * dashSpeed;
 
         yield return new WaitForSeconds(.15f);
 
