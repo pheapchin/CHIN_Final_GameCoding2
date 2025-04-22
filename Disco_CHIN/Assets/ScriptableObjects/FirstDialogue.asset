@@ -16,21 +16,13 @@ MonoBehaviour:
   npcSprite: {fileID: 0}
   typingSpeed: 0
   dialogueLinesList:
-  - Hi!
-  - How are you?
+  - Good morrow.
+  - Fellow Acolyte of the Moon.
+  - I smell the blessings of the great radiance on you.
+  - A blessing to find you here, at her temple.
+  - What powers in which do you possess?
+  - A lunar dash when pressing SPACE?
+  - Or a bless-ed attack chain when LEFT MOUSE
+  - CAW!
   nextLine: {fileID: 11400000, guid: 897c54f4879b62d45bf2f94fba48416a, type: 2}
-  choices:
-  - choiceText: Doing AWFUL.
-    nextLine: {fileID: 11400000, guid: 99cbb371de4961c438d5c89a99abd600, type: 2}
-    dialogueIndex: 0
-    requiredStat: charisma
-    requiredValue: 1
-    rewardStat: logic
-    rewardAmt: 4
-  - choiceText: Doing GREAT!
-    nextLine: {fileID: 11400000, guid: 897c54f4879b62d45bf2f94fba48416a, type: 2}
-    dialogueIndex: 1
-    requiredStat: logic
-    requiredValue: 5
-    rewardStat: charisma
-    rewardAmt: 1
+  choices: []

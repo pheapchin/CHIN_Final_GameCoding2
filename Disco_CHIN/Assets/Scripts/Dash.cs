@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LunarDash", menuName ="Abilities")]
+[CreateAssetMenu(fileName = "LunarDash", menuName = "Dash")]
 public class Dash : PlayerAbilities
 {
     //stops you from dashing while exectuting
@@ -10,12 +10,12 @@ public class Dash : PlayerAbilities
     //float dashSpeed = 10f;
     //float dashDuration = 1f;
     //float dashCooldown = 1f;
-    public float power = 5000f;
+    public float power = 50f;
 
     public IEnumerator Run(Rigidbody rb)
     {
         isDashed = true;
-        rb.AddForce(rb.transform.forward * power);
+        rb.AddForce(rb.transform.forward * power, ForceMode.Impulse);
         //rb.velocity = new Vector3(moveX, 0, moveZ) * dashSpeed;
 
         yield return new WaitForSeconds(.15f);

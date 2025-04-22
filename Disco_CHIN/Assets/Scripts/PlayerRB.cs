@@ -11,6 +11,7 @@ public class PlayerRB : MonoBehaviour
     
     //execute so dash
     public Dash _ability;
+    public FlailAttack _attack;
 
     private Rigidbody rb;
     public float moveSpeed = 5f;
@@ -32,6 +33,9 @@ public class PlayerRB : MonoBehaviour
         //dash function in inspector
         _ability = ScriptableObject.CreateInstance<Dash>();
         _ability.name = "Dash";
+
+        _attack = ScriptableObject.CreateInstance<FlailAttack>();
+        _attack.name = "Attack";
     }
 
     // Update is called once per frame
@@ -65,6 +69,11 @@ public class PlayerRB : MonoBehaviour
             StartCoroutine(_ability.Run(rb));
             Debug.Log("ran coroutine");
         }
+
+        /*if(Input.GetMouseButtonDown(0) && !_attack.attackedOnce)
+        {
+            StartCoroutine(_attack.Attack());
+        }*/
     }
 
     private void ClearForces()
