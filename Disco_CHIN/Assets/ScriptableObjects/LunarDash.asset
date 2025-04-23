@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31fbbe5692dd7943b74b4214ce9d295, type: 3}
   m_Name: LunarDash
   m_EditorClassIdentifier: 
+  name: 
+  cooldownTime: 0
+  activeTime: 0
+  state: 0
   isDashed: 0
-  power: 500
+  power: 1000

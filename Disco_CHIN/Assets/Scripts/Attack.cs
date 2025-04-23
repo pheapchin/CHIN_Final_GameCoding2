@@ -22,14 +22,14 @@ public class Attack : MonoBehaviour
     {
         CheckMeleeTimer();
         shootTimer += Time.deltaTime;
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0))
         {
             OnAttack();
         }
-        if(Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButton(1))
+        /*if(Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButton(1))
         {
             OnShoot();
-        }
+        }*/
     }
 
     void OnShoot()
