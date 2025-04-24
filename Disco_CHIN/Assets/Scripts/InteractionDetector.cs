@@ -6,7 +6,8 @@ public class InteractionDetector : MonoBehaviour
 {
     private IInteractable interactableInRange = null; //closest interactable
 
-    public Canvas scrollingBox;
+    //public Canvas scrollingBox;
+    //assign the renderers here
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,11 @@ public class InteractionDetector : MonoBehaviour
         {
             interactableInRange = interactable;
             Debug.Log("interactable");
+
+            //setting emission
+            //Material.SetColor()
+            other.GetComponent<Highlight>().ToggleHighlight();
+            
         }
 
     }
@@ -43,6 +49,7 @@ public class InteractionDetector : MonoBehaviour
             //fix this
             interactable = null;
             Debug.Log("non interactable");
+            other.GetComponent<Highlight>().DisableHighlight();
         }
     }
 }
