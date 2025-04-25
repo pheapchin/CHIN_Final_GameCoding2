@@ -37,6 +37,7 @@ public class InteractionDetector : MonoBehaviour
             //setting emission
             //Material.SetColor()
             other.GetComponent<Highlight>().ToggleHighlight();
+            Debug.Log("toggled");
             
         }
 

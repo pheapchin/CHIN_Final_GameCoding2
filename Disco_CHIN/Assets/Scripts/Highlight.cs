@@ -11,12 +11,16 @@ public class Highlight : MonoBehaviour
     [SerializeField]
     private Color color = Color.white;
 
+    [SerializeField]
     private Material material;
 
     // Start is called before the first frame update
     private void Awake()
     {
-       
+        material = renderers.GetComponent<Renderer>().material;
+        //renderers = GetComponent<Renderer>();
+        //material = GetComponent<Material>();
+        //material.DisableKeyword("_Emission");
     }
 
     public void ToggleHighlight()
@@ -25,6 +29,8 @@ public class Highlight : MonoBehaviour
         material.EnableKeyword("_EMISSION");
         //set color
         material.SetColor("_EmsissionColor", color);
+
+
     }
 
     public void DisableHighlight()
