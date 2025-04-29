@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     //health stats:
     [Header("Player Stats: ")]
     public int health;
-    public int movementSpeed;
+    //public int movementSpeed;
     public int atkSpeed;
 
     public Dictionary<string, int> stats = new Dictionary<string, int>();

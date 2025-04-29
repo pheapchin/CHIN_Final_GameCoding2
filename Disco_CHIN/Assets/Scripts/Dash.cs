@@ -10,7 +10,7 @@ public class Dash : PlayerAbilities
     //float dashSpeed = 10f;
     //float dashDuration = 1f;
     //float dashCooldown = 1f;
-    public float power = 50f;
+    public float power = 150f;
 
     public IEnumerator Run(Rigidbody rb)
     {

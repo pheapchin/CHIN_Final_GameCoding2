@@ -82,11 +82,10 @@ public class PlayerRB : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
     }
 
-    /*private void GroundPound()
+    public void AmpSpeed(float speed)
     {
-        ClearForces();
-        //you can add an animation here or rotate once there is a model/player
-        rb.velocity = new Vector3(rb.velocity.x, -groundPoundForce, rb.velocity.z);
-    }*/
+        speed = 1.5f;
+        moveSpeed = speed * moveSpeed;
+    }
   
 }
