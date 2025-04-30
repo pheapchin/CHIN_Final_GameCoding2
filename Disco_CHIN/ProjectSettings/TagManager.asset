@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - AtkContainer
+  - AimTwo
+  - AimThree
   layers:
   - Default
   - TransparentFX

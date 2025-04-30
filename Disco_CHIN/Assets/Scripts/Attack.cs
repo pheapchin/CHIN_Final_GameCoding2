@@ -18,6 +18,8 @@ public class Attack : MonoBehaviour
     [Header("Right Click")]
     //ranged
     public Transform Aim;
+    public Transform aimTwo;
+    public Transform aimThree;
     public GameObject bullet;
     public float fireForce = 10f;
     float shootCooldown = 1.5f;
@@ -63,8 +65,24 @@ public class Attack : MonoBehaviour
             shootTimer = 0;
             GameObject intBullet = Instantiate(bullet, Aim.position, Aim.rotation);
             intBullet.GetComponent<Rigidbody>().AddForce(Aim.forward * fireForce, ForceMode.Impulse);
+            GameObject intBulletTwo = Instantiate(bullet, aimTwo.position, aimTwo.rotation);
+            intBulletTwo.GetComponent<Rigidbody>().AddForce(aimTwo.forward * fireForce, ForceMode.Impulse);
+            GameObject intBulletThree = Instantiate(bullet, aimThree.position, aimThree.rotation);
+            intBulletThree.GetComponent<Rigidbody>().AddForce(aimThree.forward * fireForce, ForceMode.Impulse);
             Destroy(intBullet, 0.5f);
         }
+    }
+
+    public void ExtraBullets()
+    {
+        aimTwo = GameObject.FindGameObjectWithTag("AimTwo").transform;
+        Debug.Log("Found AimTwo");
+    }
+    
+    public void TripleBullets()
+    {
+        aimThree = GameObject.FindGameObjectWithTag("AimThree").transform;
+        Debug.Log("Found AimThree");
     }
 
     void OnAttack()

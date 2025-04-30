@@ -59,4 +59,10 @@ public class PlayerStats : MonoBehaviour
         health -= _damage;
         Debug.Log("Health = " + health.ToString());
     }
+
+    public void AddHealth(int _health)
+    {
+        health += _health;
+        Debug.Log("Health = " + health.ToString());
+    }
 }
