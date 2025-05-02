@@ -6,6 +6,8 @@ public class InteractionDetector : MonoBehaviour
 {
     private IInteractable interactableInRange = null; //closest interactable
 
+    public bool interacting = false;
+
     //public Canvas scrollingBox;
     //assign the renderers here
 
@@ -17,12 +19,15 @@ public class InteractionDetector : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (interacting)
         {
-            //checks if there is an interactable in range and if there is then calls the interact function
-            interactableInRange?.Interact();
-            //scrollingBox.GetComponent<Canvas>().enabled = true;
-            Debug.Log("Interacted");
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                //checks if there is an interactable in range and if there is then calls the interact function
+                interactableInRange?.Interact();
+                //scrollingBox.GetComponent<Canvas>().enabled = true;
+                Debug.Log("Interacted");
+            }
         }
         
     }
@@ -31,6 +36,7 @@ public class InteractionDetector : MonoBehaviour
     {
         if(other.TryGetComponent(out IInteractable interactable) && interactable.CanInteract())
         {
+            interacting = true;
             interactableInRange = interactable;
             Debug.Log("interactable");
 
@@ -51,6 +57,7 @@ public class InteractionDetector : MonoBehaviour
             interactable = null;
             Debug.Log("non interactable");
             other.GetComponent<Highlight>().DisableHighlight();
+            interacting = false;
         }
     }
 }

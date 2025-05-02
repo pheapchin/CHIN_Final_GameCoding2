@@ -44,6 +44,10 @@ public class StatTablet : MonoBehaviour, IInteractable
         isStatBlockActive = true;
 
         tabletUI.ShowTabletUI(true);
+
+        //setpause
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void CloseMenu()
@@ -51,5 +55,9 @@ public class StatTablet : MonoBehaviour, IInteractable
         isStatBlockActive = false;
 
         tabletUI.ShowTabletUI(false);
+
+        //set pause false
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

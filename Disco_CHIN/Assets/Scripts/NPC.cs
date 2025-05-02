@@ -50,6 +50,8 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueUI.ShowDialogueUI(true);
 
         //setpause
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Locked;
         //StartCoroutine(TypeLine());
         DisplayCurrentLine();
     }
@@ -157,5 +159,7 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueUI.SetDialogueText("");
         dialogueUI.ShowDialogueUI(false);
         //set pause false
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

@@ -26,6 +26,8 @@ public class PlayerRB : MonoBehaviour
     //raycast distance for ground detection
     private float groundDistance = .3f;
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,10 @@ public class PlayerRB : MonoBehaviour
 
         _attack = ScriptableObject.CreateInstance<FlailAttack>();
         _attack.name = "Attack";
+
+        animator = GetComponent<Animator>();
+        //shows whether or not she can run
+        animator.SetBool("isRunning", false);
     }
 
     // Update is called once per frame
@@ -51,6 +57,15 @@ public class PlayerRB : MonoBehaviour
         //apply movement
         Vector3 move = new Vector3(moveX, 0, moveZ) * moveSpeed;
         rb.velocity = new Vector3(move.x, rb.velocity.y, move.z);
+
+        if (moveX != 0 || moveZ != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
     }
 
     private void Update()
@@ -69,6 +84,7 @@ public class PlayerRB : MonoBehaviour
             StartCoroutine(_ability.Run(rb));
             Debug.Log("ran coroutine");
         }
+
 
         /*if(Input.GetMouseButtonDown(0) && !_attack.attackedOnce)
         {

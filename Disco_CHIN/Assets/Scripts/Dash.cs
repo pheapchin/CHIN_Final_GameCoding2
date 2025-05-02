@@ -18,7 +18,7 @@ public class Dash : PlayerAbilities
         rb.AddForce(rb.transform.forward * power, ForceMode.Impulse);
         //rb.velocity = new Vector3(moveX, 0, moveZ) * dashSpeed;
 
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSeconds(2f);
 
         rb.velocity = Vector3.zero;
         isDashed = false;
