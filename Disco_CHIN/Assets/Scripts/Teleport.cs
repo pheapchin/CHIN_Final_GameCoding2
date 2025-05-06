@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour, IInteractable
 {
     private bool isTeleported;
+    public int levelToLoad;
 
     public bool CanInteract()
     {
@@ -13,18 +15,17 @@ public class Teleport : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        
+        Teleported();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Teleported()
     {
-        
+        SceneManager.LoadScene(levelToLoad);
+        isTeleported = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartButtons()
     {
-        
+        SceneManager.LoadScene(levelToLoad);
     }
 }

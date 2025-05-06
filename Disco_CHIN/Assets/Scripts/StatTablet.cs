@@ -47,7 +47,7 @@ public class StatTablet : MonoBehaviour, IInteractable
 
         //setpause
         Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     void CloseMenu()
@@ -58,6 +58,6 @@ public class StatTablet : MonoBehaviour, IInteractable
 
         //set pause false
         Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
     }
 }

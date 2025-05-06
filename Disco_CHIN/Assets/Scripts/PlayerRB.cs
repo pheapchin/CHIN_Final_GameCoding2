@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -102,6 +103,7 @@ public class PlayerRB : MonoBehaviour
     {
         speed = 1.5f;
         moveSpeed = speed * moveSpeed;
+        rb.drag++;
     }
   
 }

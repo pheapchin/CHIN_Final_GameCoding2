@@ -70,6 +70,8 @@ public class Attack : MonoBehaviour
             GameObject intBulletThree = Instantiate(bullet, aimThree.position, aimThree.rotation);
             intBulletThree.GetComponent<Rigidbody>().AddForce(aimThree.forward * fireForce, ForceMode.Impulse);
             Destroy(intBullet, 0.5f);
+            Destroy(intBulletTwo, 0.7f);
+            Destroy(intBulletThree, 0.7f);
         }
     }
 
