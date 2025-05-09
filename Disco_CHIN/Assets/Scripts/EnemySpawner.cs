@@ -15,17 +15,38 @@ public class EnemySpawner : MonoBehaviour
 
     private int enemiesAlive = 0;
 
+    private Transform player;
+
     // Start is called before the first frame update
     void Start()
     {
-        //spawns immediately
-        SpawnEnemies();
-        StartCoroutine(SpawnWave());
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        Debug.Log(player.position);
+        if (player != null)
+        {
+            Debug.Log("player found in scene");
+            //spawns immediately
+            SpawnEnemies();
+            StartCoroutine(SpawnWave());
+        }
+        else
+        {
+            Debug.Log("no found player");
+        }
     }
 
-   IEnumerator SpawnWave()
+    private void Update()
     {
-        while (true)//infiite loop to spaw enemies, change it to a reuirement to turn it to true so i can stop waves
+        if(waveNumber == 0 && enemiesAlive == 0)
+        {
+            //spawn loot
+        }
+    }
+
+    IEnumerator SpawnWave()
+    {
+        //while (true)//infiite loop to spaw enemies, change it to a reuirement to turn it to true so i can stop waves
+        if(waveNumber > 0)
         {
             yield return new WaitForSeconds(timeBetweenWaves);
             SpawnEnemies();
@@ -46,6 +67,6 @@ public class EnemySpawner : MonoBehaviour
         }
         //increase wave #
         waveNumber++;
-        enemiesPerWave += 2;
+        //enemiesPerWave += 2;
     }
 }

@@ -10,8 +10,8 @@
         },
         {
             "name": "SmallRobot",
-            "health": 25,
-            "speed": 10,
+            "health": 5,
+            "speed": 4,
             "detectionRange": 10,
             "attackRange": 5,
             "attackCooldown": 5

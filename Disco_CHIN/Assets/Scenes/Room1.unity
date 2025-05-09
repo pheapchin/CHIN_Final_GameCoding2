@@ -675,6 +675,7 @@ MonoBehaviour:
   - {fileID: 2071328321509043115, guid: dc9c5154dfc5ed54b96824f4a6e5b8b4, type: 3}
   spawnPointsList:
   - {fileID: 606480950}
+  - {fileID: 1031353907}
   waveNumber: 1
   timeBetweenWaves: 20
   enemiesPerWave: 3
@@ -1002,7 +1003,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1031353907}
-  - component: {fileID: 1031353906}
   m_Layer: 0
   m_Name: Spawn2
   m_TagString: Untagged
@@ -1010,25 +1010,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1031353906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031353905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a0253577bb50349803af1701472c69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabsList:
-  - {fileID: 1833704605191553613, guid: e10291ddd4bc6ea42bf99ead64a038a4, type: 3}
-  spawnPointsList:
-  - {fileID: 1031353907}
-  waveNumber: 2
-  timeBetweenWaves: 30
-  enemiesPerWave: 3
 --- !u!4 &1031353907
 Transform:
   m_ObjectHideFlags: 0

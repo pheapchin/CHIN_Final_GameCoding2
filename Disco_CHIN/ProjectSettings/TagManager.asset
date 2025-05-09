@@ -7,6 +7,9 @@ TagManager:
   - AtkContainer
   - AimTwo
   - AimThree
+  - Melee
+  - Bullet
+  - ButtonText
   layers:
   - Default
   - TransparentFX

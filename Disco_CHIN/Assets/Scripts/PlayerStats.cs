@@ -8,7 +8,11 @@ public class PlayerStats : MonoBehaviour
 
     //health stats:
     [Header("Player Stats: ")]
-    public int health;
+    public int maxHealth;
+    public int currentHealth;
+
+    public HealthBar healthBar;
+
     //public int movementSpeed;
     public int atkSpeed;
 
@@ -54,15 +58,24 @@ public class PlayerStats : MonoBehaviour
         Debug.Log($"Increased {_statName} by {amount}. New Value {stats[_statName]}");
     }
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
+
+
     public void TakeDamage(int _damage)
     {
-        health -= _damage;
-        Debug.Log("Health = " + health.ToString());
+        currentHealth -= _damage;
+        healthBar.SetHealth(currentHealth);
+        Debug.Log("Health = " + currentHealth.ToString());
     }
 
     public void AddHealth(int _health)
     {
-        health += _health;
-        Debug.Log("Health = " + health.ToString());
+        maxHealth += _health;
+        currentHealth = maxHealth;
+        Debug.Log("Health = " + currentHealth.ToString());
     }
 }

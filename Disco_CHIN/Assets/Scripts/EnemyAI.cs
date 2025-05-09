@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class EnemyAI : MonoBehaviour
 {
     //defines diff states and switches between them
-    public enum EnemyState {Idle, Patrol, Chase, Attack}
+    public enum EnemyState {Idle, Patrol, Chase, Attack, Death}
     public EnemyState currentState;
 
     private Transform player;
@@ -24,7 +24,7 @@ public class EnemyAI : MonoBehaviour
     //AI settings
     [Header("AI Settings")]
     public string enemyType;
-    private int health;
+    public int health;
     private float speed;
     public float detectionRange;
     public float attackRange;
@@ -32,6 +32,8 @@ public class EnemyAI : MonoBehaviour
 
     float lastAttackTime;
     int collisionCount = 0;
+
+    public static bool dead;
 
     [Header("Projectile Settings")]
     public Rigidbody projectile;
@@ -166,7 +168,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void MoveToNextPatrolPoint()
+        private void MoveToNextPatrolPoint()
     {
         //if (patrolPoints.Length == 0) return;
         //set destination to next patrol point
@@ -175,19 +177,38 @@ public class EnemyAI : MonoBehaviour
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("Bullet"))
         {
             collisionCount++;
-            Debug.Log("enemy hit");
+            health -= 1;
 
-            //if(collisionCount == 3)
-            //{
-                //agent.enabled = false;
+            Debug.Log("bullet hit");
+
+            if(health == 0)
+            {
+                agent.enabled = false;
                 //ChangeState(EnemyState.Death)
-                //Destroy(gameObject);   
-            //}
+                Destroy(gameObject);   
+                dead = true;
+            }
+        }
+
+        if (other.gameObject.CompareTag("Melee"))
+        {
+            collisionCount++;
+            health -= 1;
+
+            Debug.Log("melee hit");
+
+            if (health == 0)
+            {
+                agent.enabled = false;
+                //ChangeState(EnemyState.Death)
+                Destroy(gameObject);
+                dead = true;
+            }
         }
     }
 

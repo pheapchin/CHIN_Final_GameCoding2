@@ -8,12 +8,12 @@ public class Attack : MonoBehaviour
     //melee
     public GameObject Melee;
     public GameObject MeleeTwo;
-    public GameObject MeleeThree;
+    //public GameObject MeleeThree;
     public bool isAttacking = false;
     public bool isAttackingTwo = false;
-    public bool isAttackingThree = false;
+    //public bool isAttackingThree = false;
     float atkDuration = 0.25f;
-    float atkTimer = 0.1f;
+    float atkTimer = 0.5f;
 
     [Header("Right Click")]
     //ranged
@@ -35,11 +35,11 @@ public class Attack : MonoBehaviour
     {
         CheckMeleeTimer();
         shootTimer += Time.deltaTime;
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            //StartCoroutine("ResetTapTimes");
             OnAttack();
             tapTimes++;
+            StartCoroutine("ResetTapTimes");
         }
         /*if(tapTimes <= 2)
         {
@@ -91,31 +91,21 @@ public class Attack : MonoBehaviour
     {
         if (!isAttacking)
         {
+            MeleeTwo.SetActive(false);
             Melee.SetActive(true);
             isAttacking = true;
             //call animation for attack
+
+            if (!isAttackingTwo && tapTimes >= 1)
+            {
+                Melee.SetActive(false);
+                MeleeTwo.SetActive(true);
+                isAttackingTwo = true;
+                //isAttacking = false;
+            }
         }
     }
 
-    /*void OnAttackTwo()
-    {
-        if (!isAttackingTwo)
-        {
-            MeleeTwo.SetActive(true);
-            isAttackingTwo = true;
-            //isAttacking = false;
-        }
-    }
-
-    void OnAttackThree()
-    {
-        if (!isAttackingThree)
-        {
-            MeleeThree.SetActive(true);
-            isAttackingThree = true;
-            //isAttackingTwo = false;
-        }
-    }*/
 
     void CheckMeleeTimer()
     {
@@ -130,7 +120,7 @@ public class Attack : MonoBehaviour
             }
         }
 
-        /*if (isAttackingTwo)
+        if (isAttackingTwo)
         {
             atkTimer += Time.deltaTime;
             if (atkTimer >= atkDuration)
@@ -141,21 +131,11 @@ public class Attack : MonoBehaviour
             }
         }
 
-        if (isAttackingThree)
-        {
-            atkTimer += Time.deltaTime;
-            if (atkTimer >= atkDuration)
-            {
-                atkTimer = 0;
-                isAttackingThree = false;
-                MeleeThree.SetActive(false);
-            }
-        }*/
     }
 
-    /*IEnumerator ResetTapTimes()
+    IEnumerator ResetTapTimes()
     {
         yield return new WaitForSeconds(resetTimer);
         tapTimes = 0;
-    }*/
+    }
 }
