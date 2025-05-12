@@ -6,9 +6,12 @@ public class StatTabletController : MonoBehaviour
 {
     public static StatTabletController Instance;
 
-    [Header("UI Manager")]
+    [Header("Tablet Manager")]
     //public DialogueLine dialogueData;
     public GameObject tabletPanel;
+
+    [Header("Reward Manager")]
+    public GameObject rewardsPanel;
 
     void Awake()
     {
@@ -19,5 +22,10 @@ public class StatTabletController : MonoBehaviour
     public void ShowTabletUI(bool show)
     {
         tabletPanel.SetActive(show);
+    }
+
+    public void ShowRewardUI(bool show)
+    {
+        rewardsPanel.SetActive(show);
     }
 }

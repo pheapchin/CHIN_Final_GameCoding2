@@ -210,6 +210,22 @@ public class EnemyAI : MonoBehaviour
                 dead = true;
             }
         }
+
+        if (other.gameObject.CompareTag("DOT"))
+        {
+            collisionCount++;
+            health -= 2;
+
+            Debug.Log("dot hit");
+
+            if (health == 0)
+            {
+                agent.enabled = false;
+                //ChangeState(EnemyState.Death)
+                Destroy(gameObject);
+                dead = true;
+            }
+        }
     }
 
     IEnumerator SpawnBullets()

@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesAlive = 0;
 
     private Transform player;
+    public GameObject rewardPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +42,16 @@ public class EnemySpawner : MonoBehaviour
         {
             //spawn loot
         }
+        if(waveNumber == 5 && enemiesAlive == 0)
+        {
+            Instantiate(rewardPrefab);
+        }
     }
 
     IEnumerator SpawnWave()
     {
-        //while (true)//infiite loop to spaw enemies, change it to a reuirement to turn it to true so i can stop waves
-        if(waveNumber > 0)
+        //if(waveNumber > 0)
+        while (true)//infiite loop to spaw enemies, change it to a reuirement to turn it to true so i can stop waves
         {
             yield return new WaitForSeconds(timeBetweenWaves);
             SpawnEnemies();

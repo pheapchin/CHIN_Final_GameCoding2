@@ -22,6 +22,11 @@ public class HealthBar : MonoBehaviour
         healthSlider.value = health;
     }
 
+    public void IncreaseMaxValue(int health)
+    {
+        healthSlider.maxValue++;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

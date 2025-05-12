@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class WindowButtonManager : MonoBehaviour
 {
     public int buttonClicks = 0;
+    private GameObject rewardInteract;
+
+    private void Update()
+    {
+        Reward reward = GameObject.FindGameObjectWithTag("RewardInteract").GetComponent<Reward>();
+    }
 
     public void IncreaseSpeed(float _speed)
     {
@@ -41,7 +47,31 @@ public class WindowButtonManager : MonoBehaviour
 
     public void MaxHealthIncrease(int health)
     {
+        buttonClicks++;
         PlayerStats playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
         playerStats.AddHealth(health);
+        if(buttonClicks == 20)
+        {
+            GameObject.Find("ADDHealth").GetComponent<Button>().enabled = false;
+            GameObject.Find("ADDHealth").GetComponent<Image>().color = Color.gray;
+        }
+    }
+
+    public void HealHealth(int health)
+    {
+        PlayerStats playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        playerStats.HealHealth(health);
+
+        Reward reward = GameObject.FindGameObjectWithTag("RewardInteract").GetComponent<Reward>();
+        reward.CloseMenu();
+    }
+
+    public void DOTRadius()
+    {
+        GameObject dot = GameObject.FindGameObjectWithTag("DOT");
+        dot.SetActive(true);
+
+        Reward reward = GameObject.FindGameObjectWithTag("RewardInteract").GetComponent<Reward>();
+        reward.CloseMenu();
     }
 }

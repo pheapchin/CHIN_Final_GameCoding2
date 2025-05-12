@@ -17,11 +17,6 @@ public class StatTablet : MonoBehaviour, IInteractable
         tabletUI = StatTabletController.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public bool CanInteract()
     {
         return !isStatBlockActive;
@@ -35,7 +30,7 @@ public class StatTablet : MonoBehaviour, IInteractable
         }
         else
         {
-        DisplayMenu();
+            DisplayMenu();
         }
     }
 

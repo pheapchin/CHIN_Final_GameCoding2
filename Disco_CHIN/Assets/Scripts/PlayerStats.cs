@@ -75,7 +75,19 @@ public class PlayerStats : MonoBehaviour
     public void AddHealth(int _health)
     {
         maxHealth += _health;
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
+        //increases max value on the health bar by 1 (corresponds to the number of the button increase
+        healthBar.IncreaseMaxValue(1);
+        //sets the bar to update the current health to the max value
+        healthBar.SetHealth(currentHealth);
+        Debug.Log("Health = " + currentHealth.ToString());
+    }
+
+    public void HealHealth(int _health)
+    {
+        currentHealth += _health;
+        //currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth);
         Debug.Log("Health = " + currentHealth.ToString());
     }
 }
