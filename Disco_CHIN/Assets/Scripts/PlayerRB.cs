@@ -105,5 +105,16 @@ public class PlayerRB : MonoBehaviour
         moveSpeed = speed * moveSpeed;
         rb.drag++;
     }
-  
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Heal"))
+        {
+            //if (GetComponent<PlayerStats>() != null)
+            //{
+                GetComponent<PlayerStats>().ApplyHealing(4);
+                Debug.Log("healing");
+            //}
+        }
+    }
 }

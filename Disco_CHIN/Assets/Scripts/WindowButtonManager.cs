@@ -68,8 +68,31 @@ public class WindowButtonManager : MonoBehaviour
 
     public void DOTRadius()
     {
-        GameObject dot = GameObject.FindGameObjectWithTag("DOT");
-        dot.SetActive(true);
+        //GameObject dot = GameObject.FindGameObjectWithTag("DOT");
+        //dot.SetActive(true);
+        Attack attack = GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>();
+        attack.ActivateDOT();
+
+        Reward reward = GameObject.FindGameObjectWithTag("RewardInteract").GetComponent<Reward>();
+        reward.CloseMenu();
+    }
+
+    public void SlowRadius()
+    {
+        Attack attack = GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>();
+        attack.ActivateSlow();
+
+        Reward reward = GameObject.FindGameObjectWithTag("RewardInteract").GetComponent<Reward>();
+        reward.CloseMenu();
+    }
+
+    public void HealingRadius()
+    {
+        Light healLight = GameObject.FindGameObjectWithTag("Heal").GetComponent<Light>();
+        SphereCollider heal = GameObject.FindGameObjectWithTag("Heal").GetComponent<SphereCollider>();
+        Debug.Log("found heal");
+        healLight.enabled = true;
+        heal.enabled = true;
 
         Reward reward = GameObject.FindGameObjectWithTag("RewardInteract").GetComponent<Reward>();
         reward.CloseMenu();

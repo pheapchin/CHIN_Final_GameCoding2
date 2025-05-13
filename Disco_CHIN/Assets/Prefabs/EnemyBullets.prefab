@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8599160687069463746}
   - component: {fileID: 3642680841396091913}
   - component: {fileID: 2937363312523439120}
+  - component: {fileID: 6959262767072299970}
   m_Layer: 0
   m_Name: EnemyBullets
   m_TagString: Untagged
@@ -149,8 +150,24 @@ MonoBehaviour:
   - {fileID: 6498451733621660887, guid: 3f3cd76e99aee8447a8ce0f0ee57588d, type: 3}
   - {fileID: 1122609808315379159, guid: 9f34121fe43149541b5c6576335d7e97, type: 3}
   enemyType: SmallRobot
+  health: 0
+  speed: 0
   detectionRange: 3
   attackRange: 2
   attackCooldown: 2
-  projectile: {fileID: -5839215582932469181, guid: 73786ec8f41a3664092dc489cd140936, type: 3}
+  projectile: {fileID: -5839215582932469181, guid: 934a4348b1ae8c74391f3de12eec2c84, type: 3}
   projSpeed: 8
+--- !u!114 &6959262767072299970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071328321509043115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a32de97316ed5d4bace689216b27863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnTickTimers: 
+  slowTickTimers: 

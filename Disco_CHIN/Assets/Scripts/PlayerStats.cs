@@ -13,8 +13,12 @@ public class PlayerStats : MonoBehaviour
 
     public HealthBar healthBar;
 
+    [Header("Healing Radius")]
+    public List<int> healTickTimers = new List<int>();
+
     //public int movementSpeed;
-    public int atkSpeed;
+    //public int atkSpeed;
+    Animator animator;
 
     public Dictionary<string, int> stats = new Dictionary<string, int>();
 
@@ -62,6 +66,9 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
+        animator = GetComponent<Animator>();
+        animator.SetBool("isHit", false);
     }
 
 
@@ -70,6 +77,8 @@ public class PlayerStats : MonoBehaviour
         currentHealth -= _damage;
         healthBar.SetHealth(currentHealth);
         Debug.Log("Health = " + currentHealth.ToString());
+        animator.SetBool("isHit", true);
+        StartCoroutine(HitWait());
     }
 
     public void AddHealth(int _health)
@@ -89,5 +98,43 @@ public class PlayerStats : MonoBehaviour
         //currentHealth = maxHealth;
         healthBar.SetHealth(currentHealth);
         Debug.Log("Health = " + currentHealth.ToString());
+    }
+
+    public void ApplyHealing(int ticks)
+    {
+        if (healTickTimers.Count <= 0)
+        {
+            healTickTimers.Add(ticks);
+            StartCoroutine(Heal());
+            Debug.Log("Started Heals");
+        }
+        else
+        {
+            healTickTimers.Add(ticks);
+        }
+    }
+
+    IEnumerator Heal()
+    {
+        //only runs when there is something in the list
+        while (healTickTimers.Count > 0)
+        {
+            for (int i = 0; i < healTickTimers.Count; i++)
+            {
+                healTickTimers[i]--;
+            }
+            //5 dmg per ticks
+            currentHealth += 5;
+            healthBar.SetHealth(currentHealth);
+            //removes anything that is 0: removes i if i = 0
+            healTickTimers.RemoveAll(i => i == 0);
+            yield return new WaitForSeconds(5f);
+        }
+    }
+
+    IEnumerator HitWait()
+    {
+        yield return new WaitForSeconds(1);
+        animator.SetBool("isHit", false);
     }
 }

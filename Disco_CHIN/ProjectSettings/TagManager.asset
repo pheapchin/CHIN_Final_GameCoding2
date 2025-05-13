@@ -13,6 +13,9 @@ TagManager:
   - Rewards
   - RewardInteract
   - DOT
+  - Enemy
+  - Slow
+  - Heal
   layers:
   - Default
   - TransparentFX

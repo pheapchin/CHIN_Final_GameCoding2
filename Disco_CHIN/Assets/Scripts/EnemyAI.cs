@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     [Header("AI Settings")]
     public string enemyType;
     public int health;
-    private float speed;
+    public float speed;
     public float detectionRange;
     public float attackRange;
     public float attackCooldown;
@@ -169,13 +169,13 @@ public class EnemyAI : MonoBehaviour
     }
 
         private void MoveToNextPatrolPoint()
-    {
-        //if (patrolPoints.Length == 0) return;
-        //set destination to next patrol point
-        agent.SetDestination(patrolPoints[currentPatrolIndex].position);
-        //update current index and wrap
-        currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
-    }
+        {
+            //if (patrolPoints.Length == 0) return;
+            //set destination to next patrol point
+            agent.SetDestination(patrolPoints[currentPatrolIndex].position);
+            //update current index and wrap
+            currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+        }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -214,9 +214,14 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("DOT"))
         {
             collisionCount++;
-            health -= 2;
+            if(GetComponent<StatusManager>() != null)
+            {
+                GetComponent<StatusManager>().ApplyDOT(4);
+                Debug.Log("dot hit");
+            }
+            //health -= 2;
 
-            Debug.Log("dot hit");
+            //Debug.Log("damaged");
 
             if (health == 0)
             {
@@ -225,6 +230,18 @@ public class EnemyAI : MonoBehaviour
                 Destroy(gameObject);
                 dead = true;
             }
+        }
+
+        if (other.gameObject.CompareTag("Slow"))
+        {
+            collisionCount++;
+            if (GetComponent<StatusManager>() != null)
+            {
+                GetComponent<StatusManager>().ApplySlow(4);
+                Debug.Log("slowed");
+            }
+            //health -= 2;
+
         }
     }
 

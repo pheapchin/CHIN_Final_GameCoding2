@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 8761420697607663268}
   - component: {fileID: 3743246969449252887}
   - component: {fileID: 1099136421857519682}
+  - component: {fileID: 4662873919725702077}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,8 +150,23 @@ MonoBehaviour:
   - {fileID: 6498451733621660887, guid: 3f3cd76e99aee8447a8ce0f0ee57588d, type: 3}
   enemyType: SmallRobot
   health: 0
+  speed: 0
   detectionRange: 2
   attackRange: 1
   attackCooldown: 3
   projectile: {fileID: 0}
   projSpeed: 8
+--- !u!114 &4662873919725702077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833704605191553613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a32de97316ed5d4bace689216b27863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnTickTimers: 
+  slowTickTimers: 

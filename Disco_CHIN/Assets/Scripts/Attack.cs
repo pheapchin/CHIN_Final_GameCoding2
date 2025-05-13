@@ -13,7 +13,7 @@ public class Attack : MonoBehaviour
     public bool isAttackingTwo = false;
     //public bool isAttackingThree = false;
     float atkDuration = 0.25f;
-    float atkTimer = 0.5f;
+    float atkTimer = 2f;
 
     [Header("Right Click")]
     //ranged
@@ -30,12 +30,24 @@ public class Attack : MonoBehaviour
     public float resetTimer;
     //public bool isHoldingDown;
 
+    GameObject player;
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetBool("isShooting", false);
+        animator.SetBool("isAttacking", false);
+
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     // Update is called once per frame
     void Update()
     {
         CheckMeleeTimer();
         shootTimer += Time.deltaTime;
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             OnAttack();
             tapTimes++;
@@ -55,6 +67,11 @@ public class Attack : MonoBehaviour
         if(Input.GetMouseButton(1))
         {
             OnShoot();
+            animator.SetBool("isShooting", true);
+        }
+        else
+        {
+            animator.SetBool("isShooting", false);
         }
     }
 
@@ -87,6 +104,22 @@ public class Attack : MonoBehaviour
         Debug.Log("Found AimThree");
     }
 
+
+    public void ActivateDOT()
+    {
+        //GameObject dot = GameObject.FindGameObjectWithTag("DOT");
+        GameObject dot = player.transform.Find("DOT").gameObject;
+        Debug.Log("found dot");
+        dot.SetActive(true);
+    }
+
+    public void ActivateSlow()
+    {
+        GameObject slow = player.transform.Find("Slow").gameObject;
+        Debug.Log("found slow");
+        slow.SetActive(true);
+    }
+
     void OnAttack()
     {
         if (!isAttacking)
@@ -95,6 +128,7 @@ public class Attack : MonoBehaviour
             Melee.SetActive(true);
             isAttacking = true;
             //call animation for attack
+            animator.SetBool("isAttacking", true);
 
             if (!isAttackingTwo && tapTimes >= 1)
             {
@@ -117,6 +151,7 @@ public class Attack : MonoBehaviour
                 atkTimer = 0;
                 isAttacking = false;
                 Melee.SetActive(false);
+                animator.SetBool("isAttacking", false);
             }
         }
 
@@ -128,6 +163,7 @@ public class Attack : MonoBehaviour
                 atkTimer = 0;
                 isAttackingTwo = false;
                 MeleeTwo.SetActive(false);
+                animator.SetBool("isAttacking", false);
             }
         }
 
