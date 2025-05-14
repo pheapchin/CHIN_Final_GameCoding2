@@ -1,0 +1,29 @@
+HIIIII WELCOME TO MY GAME!
+WASD TO MOVE 
+E TO INTERACT
+
+I've added a rewards system after defeating a certain wave of enemies! I have one of them in the main scene so you can test that out. The panel is being iffy in the second scene, so it probably won't work but that is the gameplay loop!
+The slow radius is also bugged... other than that good luck!
+Headphones for music
+
+Love the UI. Good job at really pushing your code to figure out all these interactions. You should be proud of the work you have done this semester, you really have gained an understanding of c#!!! I wish I knew that my enemies were receiving damage and that what I was allowed to interact with was a bit more obvious.
+
+I think the music, color palette and the models are all stunning! Absolutely love the tone you've set, and the dynamics with the multiple projectiles, the character's movement (it kind of feels like I'm sliding, which I really love) and the enemy AI feels good :). I wasn't really sure what to do with the reward thingy that pops up in the level, if I was able to interact with it, etc., and if there was any way for me to move back to the setup scene/base? Could probably use a bit more text popups/information on screen to show what we can do/need to do next to guide the player.
+
+I looove the way you handled UI, it makes the space so much more interactable! Only thing is that I couldn't interact with the reward in the fighting level... love the crow he's my favorite guy. I think you did so much stuff and it's wonderful how it all works together. Love it!!
+
+The stained glass window is really gorgeous!! The interaction UI is very interesting a easy to read also. The character movement in the game seems very fluid and I enjoyed the way it works. Overall very gorgeous!!
+
+
+I love the UI's and your game interface (looks like HADES, i love it), and I love the colorful window that you we can choose a buff. My HP turns to 0 in the first level but I'm still alive...? I love your character's model and movement!
+
+
+
+I Like the UI and your character so much! And the background Music you chose for your game is also very nice. I also meet the same bug when my HP turns to 0 and I cannot restart to the main Scene? Overall It's a very nice game !
+
+Love the visuals! your power ups are so cool, i realized i can keep spawning the enemies if i just keep pressing E, which i find really funny, but I love how you set up your levels, can't wait to see more of your games and to see u perfect your fighting mechanics
+
+Love the battle mechanics, I got really excited when I saw 
+
+
+I love the different powerups yhou can get and the interface on how you get stuff like the cicles and the stained glass. I like how there are two types of wepons and i love adding more balls. i love her and the way she leans. Overall it's a good start and I can't wait to see it get expanded upon if you want to keep on adding to it.

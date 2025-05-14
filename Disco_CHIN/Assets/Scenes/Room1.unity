@@ -709,10 +709,10 @@ MonoBehaviour:
   - {fileID: 1031353907}
   - {fileID: 1931528861}
   - {fileID: 116268335}
-  waveNumber: 10
-  timeBetweenWaves: 20
+  waveNumber: 1
+  timeBetweenWaves: 10
   enemiesPerWave: 3
-  rewardPrefab: {fileID: 0}
+  rewardPrefab: {fileID: 3435600979890487851, guid: 78917b1e440da354fb1d393a644d10db, type: 3}
 --- !u!4 &606480950
 Transform:
   m_ObjectHideFlags: 0

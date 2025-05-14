@@ -38,13 +38,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if(waveNumber == 0 && enemiesAlive == 0)
+        //if(waveNumber == 0 && enemiesAlive == 0)
+        //{
+        //    //spawn loot
+        //}
+        if(waveNumber == 5)
         {
-            //spawn loot
-        }
-        if(waveNumber == 5 && enemiesAlive == 0)
-        {
-            Instantiate(rewardPrefab);
+            Instantiate(rewardPrefab, player.position, Quaternion.identity);
         }
     }
 

@@ -22,7 +22,8 @@ public class Reward : MonoBehaviour, IInteractable
     void Start()
     {
         //RewardID ??= GlobalHelper.GenerateUniqueID(gameObject);
-
+        //have to find rewards panel when instantiated
+        //GameObject rewardsPanel = GameObject.FindGameObjectByTag("RewardsPanel");
         //rewardButtonPrefabs = GameObject.FindGameObjectsWithTag("Rewards");
         //_rewards.Add(Instantiate(rewardButtonPrefabs));
     }

@@ -186,7 +186,7 @@ public class EnemyAI : MonoBehaviour
 
             Debug.Log("bullet hit");
 
-            if(health == 0)
+            if(health <= 0)
             {
                 agent.enabled = false;
                 //ChangeState(EnemyState.Death)
@@ -202,7 +202,7 @@ public class EnemyAI : MonoBehaviour
 
             Debug.Log("melee hit");
 
-            if (health == 0)
+            if (health <= 0)
             {
                 agent.enabled = false;
                 //ChangeState(EnemyState.Death)
@@ -223,7 +223,7 @@ public class EnemyAI : MonoBehaviour
 
             //Debug.Log("damaged");
 
-            if (health == 0)
+            if (health <= 0)
             {
                 agent.enabled = false;
                 //ChangeState(EnemyState.Death)

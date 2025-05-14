@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - Slow
   - Heal
+  - RewardsPanel
   layers:
   - Default
   - TransparentFX
