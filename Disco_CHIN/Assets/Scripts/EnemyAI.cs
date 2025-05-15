@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
     private Transform player;
     private GameObject bulletClone;
     //public GameObject bulletPrefab;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     //patrol settings
     public Transform[] patrolPoints;
@@ -258,8 +258,8 @@ public class EnemyAI : MonoBehaviour
 
     private void LoadEnemyData(string enemyName)
     {
-        string path = Application.dataPath + "/Data/enemiesText.json";
-        //string path = Path.Combine(Application.streamingAssetsPath, "Data/EnemiesText.json");
+        //string path = Application.dataPath + "/Data/enemiesText.json";
+        string path = Path.Combine(Application.streamingAssetsPath, "Data/EnemiesText.json");
         if (File.Exists(path))
         {
             //read json file as tezxt and store as a string

@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpened: 0
-  rewardsPanel: {fileID: 0}
   rewardButtonPrefabs:
   - {fileID: 3862597359638380361, guid: 138fb012ca82599418efd323dec9ba9f, type: 3}
   - {fileID: 7146255133482098473, guid: 35df7a92e44c0914997bb0cf12f1f3e2, type: 3}

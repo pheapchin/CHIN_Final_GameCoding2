@@ -70,7 +70,7 @@ public class StatusManager : MonoBehaviour
                 slowTickTimers[i]--;
             }
             //not actually slowing them but it is changing the numbers, fix this
-            healthScript.speed -= 3;
+            healthScript.agent.speed -= 3;
             slowTickTimers.RemoveAll(i => i == 0);
             yield return new WaitForSeconds(.5f);
         }

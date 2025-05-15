@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
@@ -18,9 +19,12 @@ public class EnemySpawner : MonoBehaviour
     private Transform player;
     public GameObject rewardPrefab;
 
+    bool isSpawned;
+
     // Start is called before the first frame update
     void Start()
     {
+        isSpawned = false;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         Debug.Log(player.position);
         if (player != null)
@@ -42,7 +46,28 @@ public class EnemySpawner : MonoBehaviour
         //{
         //    //spawn loot
         //}
-        if(waveNumber == 5)
+
+        if(waveNumber == 5 && isSpawned == false)
+        {
+            Instantiate(rewardPrefab, player.position, Quaternion.identity);
+            isSpawned = true;
+        }
+        if (waveNumber == 10 && isSpawned == true)
+        {
+            Instantiate(rewardPrefab, player.position, Quaternion.identity);
+            isSpawned = false;
+        }
+        if (waveNumber == 15 && isSpawned == false)
+        {
+            Instantiate(rewardPrefab, player.position, Quaternion.identity);
+            isSpawned = true;
+        }
+        if (waveNumber == 20 && isSpawned == true)
+        {
+            Instantiate(rewardPrefab, player.position, Quaternion.identity);
+            isSpawned = false;
+        }
+        if (waveNumber >= 25)
         {
             Instantiate(rewardPrefab, player.position, Quaternion.identity);
         }

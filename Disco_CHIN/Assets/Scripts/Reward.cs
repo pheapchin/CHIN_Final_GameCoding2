@@ -11,7 +11,9 @@ public class Reward : MonoBehaviour, IInteractable
     //public string RewardID { get; private set; }
     //public GameObject itemPrefab; //item the chest drops, the reward. lets change it to a ui interface
     [Header("Reward Manager")]
-    public GameObject rewardsPanel;
+    //public GameObject rewardsPanel;
+    GameObject rewardsPanel;
+    GameObject rewardsCanvas;
     public GameObject[] rewardButtonPrefabs;
     public Transform rewardOneContainer;
     public Transform rewardTwoContainer;
@@ -21,9 +23,14 @@ public class Reward : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        //RewardID ??= GlobalHelper.GenerateUniqueID(gameObject);
+        rewardsCanvas = GameObject.FindGameObjectWithTag("RewardCanvas");
         //have to find rewards panel when instantiated
-        //GameObject rewardsPanel = GameObject.FindGameObjectByTag("RewardsPanel");
+        rewardsPanel = rewardsCanvas.transform.Find("RewardsPanel").gameObject;
+        Debug.Log("found rewards panel");
+        rewardOneContainer = rewardsPanel.transform.Find("RewardOneContainer");
+        rewardTwoContainer = rewardsPanel.transform.Find("RewardTwoContainer");
+        rewardThreeContainer = rewardsPanel.transform.Find("RewardThreeContainer");
+        rewardsPanel.SetActive(false);
         //rewardButtonPrefabs = GameObject.FindGameObjectsWithTag("Rewards");
         //_rewards.Add(Instantiate(rewardButtonPrefabs));
     }
@@ -91,11 +98,15 @@ public class Reward : MonoBehaviour, IInteractable
 
 
         Debug.Log("instantiated");
-        Instantiate(rewardButtonPrefabs[Random.Range(0, 2)], rewardOneContainer.position, rewardOneContainer.rotation, rewardOneContainer.transform);
-        Instantiate(rewardButtonPrefabs[Random.Range(3, 5)], rewardTwoContainer.position, rewardTwoContainer.rotation, rewardTwoContainer.transform);
-        Instantiate(rewardButtonPrefabs[Random.Range(6, 8)], rewardThreeContainer.position, rewardThreeContainer.rotation, rewardThreeContainer.transform);
+        GameObject buttonOneClone = Instantiate(rewardButtonPrefabs[Random.Range(0, 3)], rewardOneContainer.position, rewardOneContainer.rotation, rewardOneContainer.transform);
+        GameObject buttonTwoClone = Instantiate(rewardButtonPrefabs[Random.Range(3, 6)], rewardTwoContainer.position, rewardTwoContainer.rotation, rewardTwoContainer.transform);
+        GameObject buttonThreeClone = Instantiate(rewardButtonPrefabs[Random.Range(6, 9)], rewardThreeContainer.position, rewardThreeContainer.rotation, rewardThreeContainer.transform);
         //setpause
         Time.timeScale = 0;
+        //deletes duplicate buttons after picking
+        Destroy(buttonOneClone, 1f);
+        Destroy(buttonTwoClone, 1f);
+        Destroy(buttonThreeClone, 1f);
     }
 
     public void CloseMenu()

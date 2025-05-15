@@ -17,6 +17,10 @@ TagManager:
   - Slow
   - Heal
   - RewardsPanel
+  - RewardCanvas
+  - RewardOneContainer
+  - RewardTwoContainer
+  - RewardThreeContainer
   layers:
   - Default
   - TransparentFX
